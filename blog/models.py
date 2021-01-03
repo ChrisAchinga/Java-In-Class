@@ -7,6 +7,32 @@ STATUS = (
     (1,"Publish")
 )
 
+CATEGORY_STATUS = (
+    (0, 'Draft'),
+    (1, 'Active'),
+    (3, 'Updated')
+)
+
+class Category(models.Model):
+    name = models.CharField(max_length=20, unique=True)
+    slug = models.SlugField(max_length=30, unique=True)
+    description = models.CharField(max_length=150)
+    status = models.IntegerField(choices=CATEGORY_STATUS, default=0)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.name
+    
+
+class Images(models.Model):
+    pass
+
+class Documents(models.Model):
+    pass
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
