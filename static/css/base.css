@@ -21,3 +21,7 @@ body {
     box-shadow: 0 16px 48px #e3e7eb;
     padding-top: 10px;
 }
+
+main {
+    min-height: 80vh;
+}
